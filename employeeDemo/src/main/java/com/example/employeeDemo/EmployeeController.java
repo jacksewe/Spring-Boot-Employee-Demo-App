@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -24,8 +24,8 @@ public class EmployeeController {
         return this.employees.getEmployees();
     }
 
-    @GetMapping("/employees/{age}")
-    public List<Employee> getEmployeesOlderThan(@PathVariable("age") int age) {
+    @GetMapping("/employees/age")
+    public List<Employee> getEmployeesOlderThan(@RequestParam int age) {
         this.employees.setEmployees(this.restTemplate
                 .getForObject(this.url, EmployeeList.class).getEmployees());
         return this.employees.getEmployees().stream()
