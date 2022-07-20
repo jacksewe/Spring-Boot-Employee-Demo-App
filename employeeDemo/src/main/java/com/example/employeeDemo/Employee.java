@@ -1,9 +1,13 @@
 package com.example.employeeDemo;
 
 public class Employee {
+
     private String employee_name;
+
     private int employee_salary;
+
     private int employee_age;
+
     private String profile_image;
 
     public String getEmployee_name() {
